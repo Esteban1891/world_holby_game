@@ -200,7 +200,7 @@ while ejecuta:
     if keys[pygame.K_DOWN] and py < 300:
         py += velocidad
 
-    #Tecla SPACE - Salto
+    #Tecla SPACE - Saltar
     if not salto:
         if keys[pygame.K_SPACE]:            
             salto = True                   
