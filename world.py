@@ -106,7 +106,7 @@ def recargaPantalla():
     x_relativa = x % fondo.get_rect().width    
     PANTALLA.blit(fondo, (x_relativa, 0))
     
-    PANTALLA.blit(pygame.transform.flip(enemigo_quieto, True, False), (int(px), int(py)))
+    PANTALLA.blit(pygame.transform.flip(enemigo_quieto, True, False), (-px, py))
     
     #Contador de pasos
     if cuentaPasos + 1 >= 8:
@@ -205,7 +205,7 @@ while ejecuta:
     #Tecla SPACE - Salto
     if keys[pygame.K_SPACE]:
         salto = True
-        cuentaSalto += 1
+        cuentaSalto += 1        
 
     # Control del audio
     #Baja volumen
