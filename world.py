@@ -161,7 +161,7 @@ while ejecuta:
         else:
             PANTALLA.blit(pygame.transform.flip(atacar[contAtaque], True, False), (int(px), int(py)))
     
-    #Opción tecla pulsada
+    #Opción leer tecla pulsada
     keys = pygame.key.get_pressed()
 
     #Tecla LEFT - Moviemiento a la izquierda
