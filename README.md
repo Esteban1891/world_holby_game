@@ -7,12 +7,12 @@ magical beings like knight magicians,
 pray against monsters like orc jellyfish,
 among other things, to destroy a dragon.
 
-###installation
+### installation
 ```sh
 $ https://github.com/Esteban1891/world_holby_game.git
 ```
 
-###How to install PIP for Python on Windows, Linux and Mac
+### How to install PIP for Python on Windows, Linux and Mac
 
 installation [link here](https://twitter.com/eduardo_vega04)
 
@@ -20,7 +20,7 @@ installation [link here](https://twitter.com/eduardo_vega04)
 
 ![game](https://scontent.fbaq1-1.fna.fbcdn.net/v/t1.0-9/105285437_816163665577673_8412092851773378510_n.jpg?_nc_cat=108&_nc_sid=730e14&_nc_oc=AQmiWJc8ildKqksD6xAxK9LORVsLXWDF3oQIpNqq89UOZJeFyih5wj4qsimaJ2KDFwA&_nc_ht=scontent.fbaq1-1.fna&oh=05664feac7e1edde54dc9d65c0e40a01&oe=5F12504C)
 
-###installation package
+### installation package
 
 ![game](https://scontent.fbaq1-1.fna.fbcdn.net/v/t1.0-9/104433915_816166365577403_4758883099810354599_n.jpg?_nc_cat=110&_nc_sid=730e14&_nc_oc=AQmeLtDnmhRhj_hXyLsIhzg40d3BrQtfQQ3OtlP7fJCvxqU3jccJ7Y9FNAG6zKvOb5g&_nc_ht=scontent.fbaq1-1.fna&oh=6ac352b746b6b52980ff46dc46a939fd&oe=5F11A027)
 
@@ -33,7 +33,7 @@ $ install the packages are here and are installed by pressing the symbol sum
 * run game:
 
 ![run](https://scontent.fbaq1-1.fna.fbcdn.net/v/t1.0-9/103558366_816173675576672_70389612728242123_n.jpg?_nc_cat=104&_nc_sid=730e14&_nc_oc=AQm9hKwVG2H9SGeNZgqFtfMuIo59kNtYxZScOXSZwkw4mivOoP4e1Y-mFQeU0G8ybuE&_nc_ht=scontent.fbaq1-1.fna&oh=219731760982a10d1d24f5ec15fd5522&oe=5F10F653)
-#### Building for source
+
 
 
 
