@@ -92,8 +92,7 @@ def recargaPantalla():
     #Variables globales
     global cuentaPasos
     global x
-    global contAtaque    
-    global posSalto
+    global contAtaque   
 
     #Fondo estático
     x_relativa = x % fondo.get_rect().width    
