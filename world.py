@@ -22,31 +22,45 @@ pygame.mixer.music.play(-1)
 #Personaje
 quieto = pygame.image.load('personajes_background/heroes/PNG/Knight/knight.png')
 
-caminaDerecha = [pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run1.png'),
-                 pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run2.png'),
-                 pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run3.png'),
-                 pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run4.png'),
-                 pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run5.png'),
-                 pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run6.png'),
-                 pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run7.png'),
-                 pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run8.png')]
+caminar = [pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run1.png'),
+           pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run2.png'),
+           pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run3.png'),
+           pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run4.png'),
+           pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run5.png'),
+           pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run6.png'),
+           pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run7.png'),
+           pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run8.png')]
 
-caminaIzquierda = [pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run1.png'),
-                   pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run2.png'),
-                   pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run3.png'),
-                   pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run4.png'),
-                   pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run5.png'),
-                   pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run6.png'),
-                   pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run7.png'),
-                   pygame.image.load('personajes_background/heroes/PNG/Knight/Run/run8.png')]
 
-salta = [pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump1.png'),
+saltar = [pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump1.png'),
          pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump2.png'),
          pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump3.png'),
          pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump4.png'),
          pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump5.png'),
          pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump6.png'),
          pygame.image.load('personajes_background/heroes/PNG/Knight/Jump/jump7.png')]
+
+atacar = [pygame.image.load('personajes_background/heroes/PNG/Knight/Attack/attack0.png'),
+          pygame.image.load('personajes_background/heroes/PNG/Knight/Attack/attack1.png'),
+          pygame.image.load('personajes_background/heroes/PNG/Knight/Attack/attack2.png'),
+          pygame.image.load('personajes_background/heroes/PNG/Knight/Attack/attack3.png'),
+          pygame.image.load('personajes_background/heroes/PNG/Knight/Attack/attack4.png')]
+
+#enemigo
+enemigo_quieto = pygame.image.load('personajes_background/monster/PNG/demon/Idle1.png')
+
+enemigo_caminar = [pygame.image.load('personajes_background/monster/PNG/demon/Walk1.png'),
+                   pygame.image.load('personajes_background/monster/PNG/demon/Walk2.png'),
+                   pygame.image.load('personajes_background/monster/PNG/demon/Walk3.png'),
+                   pygame.image.load('personajes_background/monster/PNG/demon/Walk4.png'),
+                   pygame.image.load('personajes_background/monster/PNG/demon/Walk5.png'),
+                   pygame.image.load('personajes_background/monster/PNG/demon/Walk6.png')]
+
+enemigo_atacar = [pygame.image.load('personajes_background/monster/PNG/demon/Attack1.png'),
+                  pygame.image.load('personajes_background/monster/PNG/demon/Attack2.png'),
+                  pygame.image.load('personajes_background/monster/PNG/demon/Attack3.png'),
+                  pygame.image.load('personajes_background/monster/PNG/demon/Attack4.png')]
+
 
 #Sonido
 sonido_arriba = pygame.image.load('sonido/volume_up.png')
@@ -63,14 +77,19 @@ velocidad = 10
 #Control de FPS
 reloj = pygame.time.Clock()
 
-#Variables salto
-salto = False
+
 #Contador de salto
-cuentaSalto = 10
+cuentaSalto = 0
+
+#Contador de movimiento de ataque
+contAtaque = 0
 
 #Variables dirección
 izquierda = False
 derecha = False
+atacando = False
+mirar = "der"
+salto = False
 
 #Pasos
 cuentaPasos = 0
@@ -80,32 +99,60 @@ def recargaPantalla():
     #Variables globales
     global cuentaPasos
     global x
+    global contAtaque
+    global cuentaSalto
 
-    #Fondo en movimiento
-    x_relativa = x % fondo.get_rect().width
-    PANTALLA.blit(fondo, (x_relativa - fondo.get_rect().width, 0))
-    if x_relativa < W:
-        PANTALLA.blit(fondo, (x_relativa, 0))
-    x -= 5
+    #Fondo estático
+    x_relativa = x % fondo.get_rect().width    
+    PANTALLA.blit(fondo, (x_relativa, 0))
+    
+    PANTALLA.blit(pygame.transform.flip(enemigo_quieto, True, False), (int(px), int(py)))
+    
     #Contador de pasos
     if cuentaPasos + 1 >= 8:
         cuentaPasos = 0
-    #Movimiento a la izquierda
-    if izquierda:
-        PANTALLA.blit(caminaIzquierda[cuentaPasos // 1], (int(px), int(py)))
+    
+    #Contador de salto
+    if cuentaSalto > 6:
+        cuentaSalto = 0 
+
+    #Contador de ataque
+    if contAtaque > 4:
+        contAtaque = 0    
+     
+    # Caminar hacia la izquierda
+    if izquierda:      
+        PANTALLA.blit(pygame.transform.flip(caminar[cuentaPasos], True, False), (int(px), int(py)))
         cuentaPasos += 1
 
-    # Movimiento a la derecha
+    # Caminar hacia la derecha
     elif derecha:
-        PANTALLA.blit(caminaDerecha[cuentaPasos // 1], (int(px), int(py)))
+        PANTALLA.blit(caminar[cuentaPasos], (int(px), int(py)))
         cuentaPasos += 1
 
-    elif salto + 1 >= 7:
-        PANTALLA.blit(salta[cuentaPasos // 1], (int(px), int(py)))
-        cuentaPasos += 1
+    # Saltar
+    elif salto:
+        if mirar == "der":
+            PANTALLA.blit(saltar[cuentaSalto], (int(px), int(py)))
+        else:
+            PANTALLA.blit(pygame.transform.flip(saltar[cuentaSalto], True, False), (int(px), int(py)))
+        cuentaSalto += 1
 
+    # Atacar
+    elif atacando:
+        if mirar == "der":        
+            PANTALLA.blit(atacar[contAtaque], (int(px), int(py)))
+        else:
+            PANTALLA.blit(pygame.transform.flip(atacar[contAtaque], True, False), (int(px), int(py))) 
+        contAtaque += 1           
+
+    # Quedarse quieto
     else:
-        PANTALLA.blit(quieto,(int(px), int(py)))
+        if mirar == "der":        
+            PANTALLA.blit(quieto, (int(px), int(py)))
+        else:
+            PANTALLA.blit(pygame.transform.flip(quieto, True, False), (int(px), int(py)))
+
 
 ejecuta = True
 
@@ -122,45 +169,43 @@ while ejecuta:
     #Opción tecla pulsada
     keys = pygame.key.get_pressed()
 
-    #Tecla A - Moviemiento a la izquierda
-    if keys[pygame.K_a] and px > velocidad:
+    #Tecla LEFT - Moviemiento a la izquierda
+    if keys[pygame.K_LEFT] and px > velocidad:
         px -= velocidad
         izquierda = True
         derecha = False
+        mirar = "izq"
 
-    #Tecla D - Moviemiento a la derecha
-    elif keys[pygame.K_d] and px < 900 - velocidad - ancho:
+    #Tecla RIGHT - Moviemiento a la derecha
+    elif keys[pygame.K_RIGHT] and px < 900 - velocidad - ancho:
         px += velocidad
         izquierda = False
         derecha = True
+        mirar = "der"
 
     #Personaje quieto
     else:
         izquierda = False
         derecha = False
-        cuentaPasos = 0
+        atacando = False
+        salto = False                      
+    
+    #Tecla G - Acción de atacar
+    if keys[pygame.K_g]:
+        atacando = True                            
 
-    #Tecla W - Moviemiento hacia arriba
-    if keys[pygame.K_w] and py > 100:
+    #Tecla UP - Moviemiento hacia arriba
+    if keys[pygame.K_UP] and py > 100:
         py -= velocidad
 
-    #Tecla S - Moviemiento hacia abajo
-    if keys[pygame.K_s] and py < 300:
+    #Tecla DOWN - Moviemiento hacia abajo
+    if keys[pygame.K_DOWN] and py < 300:
         py += velocidad
+
     #Tecla SPACE - Salto
-    if not (salto):
-        if keys[pygame.K_SPACE]:
-            salto = True
-            izquierda = False
-            derecha = False
-            cuentaPasos = 0
-    else:
-        if cuentaSalto >= -10:
-            py -= (cuentaSalto * abs(cuentaSalto)) * 0.5
-            cuentaSalto -= 1
-        else:
-            cuentaSalto = 10
-            salto = False
+    if keys[pygame.K_SPACE]:
+        salto = True
+        cuentaSalto += 1
 
     # Control del audio
     #Baja volumen
