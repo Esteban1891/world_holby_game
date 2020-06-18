@@ -96,8 +96,8 @@ def recargaPantalla():
     #Fondo estático
     x_relativa = x % fondo.get_rect().width
     PANTALLA.blit(fondo, (x_relativa, 0))
-    
-    PANTALLA.blit(pygame.transform.flip(enemigo_quieto, True, False), (px + 450, py - 75))
+
+    PANTALLA.blit(pygame.transform.flip(enemigo_quieto, True, False), (450, 125))    
        
     #Contador de pasos
     if cuentaPasos + 1 >= 8:
