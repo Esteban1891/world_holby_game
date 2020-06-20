@@ -109,6 +109,7 @@ def recargaPantalla():
 
     # Caminar hacia la izquierda
     if izquierda:
+        print("PX, PY:", px, py)
         if atacando:
             ataque()
         else:      
@@ -117,14 +118,16 @@ def recargaPantalla():
 
     # Caminar hacia la derecha
     elif derecha:
+        print("PX, PY:", px, py)
         if atacando:
             ataque()
         else:
-            PANTALLA.blit(caminar[cuentaPasos], (int(px), int(py)))
+            PANTALLA.blit(caminar[cuentaPasos], (int(px), int(py)))        
         cuentaPasos += 1
 
     # Saltar
     elif salto + 1 >= 7:
+        print("PX, PY:", px, py)
         if mirar == "der":
             PANTALLA.blit(enemigo_quieto, (int(px), int(py)))
         else:
