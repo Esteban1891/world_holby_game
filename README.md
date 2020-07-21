@@ -1,6 +1,6 @@
 ### World holby game
 
-![backgroung](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTuY2M_eFNwhywqqGvRrIysDoI1Y7HKbQ2cVw&usqp=CAU)
+![backgroung](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
 Is a game in search of fighting
 magical beings like knight magicians,
@@ -18,13 +18,13 @@ installation [link here](https://twitter.com/eduardo_vega04)
 
 (optional) 2: used pycharm
 
-![game]()
+![game](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
 ### installation package
 
-![game](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTXPTO1LpuP7To9S9ZJb2s9OEhq9jLjKXKJ9A&usqp=CAU)
+![game](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
-![game](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTXPTO1LpuP7To9S9ZJb2s9OEhq9jLjKXKJ9A&usqp=CAU)
+![game](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
 ```sh
 $ install the packages are here and are installed by pressing the symbol sum
@@ -32,7 +32,7 @@ $ install the packages are here and are installed by pressing the symbol sum
 
 * run game:
 
-![run](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTXPTO1LpuP7To9S9ZJb2s9OEhq9jLjKXKJ9A&usqp=CAU)
+![run](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
 
 
