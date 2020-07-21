@@ -18,21 +18,13 @@ installation [link here](https://twitter.com/eduardo_vega04)
 
 (optional) 2: used pycharm
 
-![game](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
 ### installation package
 
-![game](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
-
-![game](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
 ```sh
 $ install the packages are here and are installed by pressing the symbol sum
 ```
-
-* run game:
-
-![run](https://png.pngtree.com/png-vector/20190226/ourlarge/pngtree-fire-logo-icon-design-template-vector-png-image_705402.jpg)
 
 
 
